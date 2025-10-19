@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
-const HeroBanner = (heroData) => {
+const HeroBanner = ({heroData}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {

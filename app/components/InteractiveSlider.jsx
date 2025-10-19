@@ -146,18 +146,18 @@ export function InteractiveSlider({sliderData}) {
       </div>
 
       <motion.div
-        key={SLIDER_DATA[currentIndex].id + "data"}
+        key={sliderData[currentIndex].id + "data"}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.2 }}
         className="mt-12 text-center relative max-w-md mx-auto flex flex-col items-center"
       >
         <div className="text-2xl leading-[40px]  text-gray-900 mb-5 md:text-4xl md:leading-[60px]">
-          {SLIDER_DATA[currentIndex].title}
+          {sliderData[currentIndex].title}
         </div>
 
         <p className="text-base leading-[22px] text-[#7A7777] md:text-2xl md:leading-[100%]">
-          {SLIDER_DATA[currentIndex].subtitle} 
+          {sliderData[currentIndex].subtitle} 
         </p>
       </motion.div>
     </div>

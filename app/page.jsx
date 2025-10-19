@@ -2,8 +2,8 @@ import Navbar from "./components/Navbar";
 import HeroBanner from "./components/HeroBanner";
 import InteractiveSlider from "./components/InteractiveSlider";
 import TextParagraph from "./components/TitleParagragh";
-import { SLIDER_DATA } from "../data";
-import { HERO_BANNER_DATA } from "../data";
+import { SLIDER_DATA } from "./data";
+import { HERO_BANNER_DATA } from "./data";
 
 
 export default function HomePage() {
