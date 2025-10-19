@@ -2,22 +2,21 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { HERO_BANNER_DATA } from "../data";
 
-const HeroBanner = () => {
+const HeroBanner = (heroData) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % HERO_BANNER_DATA.length);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % heroData.length);
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [HERO_BANNER_DATA.length]);
+  }, [heroData.length]);
 
-  const currentItem = HERO_BANNER_DATA[currentIndex];
-  const nextItem = HERO_BANNER_DATA[currentIndex + 1] || HERO_BANNER_DATA[0];
-  const totalItems = HERO_BANNER_DATA.length;
+  const currentItem = heroData[currentIndex];
+  const nextItem = heroData[currentIndex + 1] || heroData[0];
+  const totalItems = heroData.length;
 
   const handleThumbnailClick = (index) => {
     setCurrentIndex(index);
@@ -99,7 +98,7 @@ const HeroBanner = () => {
   <div 
     className="relative w-[92px] h-[92px] md:w-[92px] md:h-[92px] cursor-pointer"
     onClick={() =>
-      handleThumbnailClick((currentIndex + 1) % HERO_BANNER_DATA.length)
+      handleThumbnailClick((currentIndex + 1) % heroData.length)
     }
   >
     <motion.svg

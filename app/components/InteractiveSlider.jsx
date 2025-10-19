@@ -1,9 +1,8 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { motion, useDragControls, useMotionValue } from "framer-motion";
+import { motion, useDragControls } from "framer-motion";
 import Image from "next/image";
-import { SLIDER_DATA } from "../data";
 
 
 const wrap = (min, max, v) => {
@@ -46,14 +45,13 @@ const cardVariants = {
   }),
 };
 
-export function InteractiveSlider() {
+export function InteractiveSlider({sliderData}) {
   const [currentIndex, setCurrentIndex] = useState(2);
-  const totalSlides = SLIDER_DATA.length;
+  const totalSlides = sliderData.length;
   if (totalSlides === 0) {
     return null;
   }
 
-  const dragX = useMotionValue(0);
   const containerRef = useRef(null);
   const dragThreshold = 70;
 
@@ -100,7 +98,7 @@ export function InteractiveSlider() {
       className="w-full py-20 bg-[#fefefe] overflow-x-clip"
     >
       <div className="relative h-[330px] md:h-[531px] w-full  max-w-[332px] md:max-w-[435px] mx-auto flex justify-center items-center px-40">
-        {SLIDER_DATA.map((item, index) => {
+        {sliderData.map((item, index) => {
           const positionProps = getPosition(index, currentIndex);
           const animateVariant =
             typeof positionProps === "string"
